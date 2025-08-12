@@ -22,6 +22,8 @@ export default function DatasetManager() {
   const [images, setImages] = useState<ImageData[]>([]);
   const [isDragOver, setIsDragOver] = useState(false);
 
+  // adding a comment to clarify the purpose of this function
+
   const handleDragOver = useCallback((e: React.DragEvent) => {
     e.preventDefault();
     setIsDragOver(true);
