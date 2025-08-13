@@ -22,8 +22,6 @@ export default function DatasetManager() {
   const [images, setImages] = useState<ImageData[]>([]);
   const [isDragOver, setIsDragOver] = useState(false);
 
-  // adding a comment to clarify the purpose of this function
-
   const handleDragOver = useCallback((e: React.DragEvent) => {
     e.preventDefault();
     setIsDragOver(true);
@@ -52,8 +50,8 @@ export default function DatasetManager() {
         category: 'uncategorized',
         uploadedAt: new Date(),
       };
-      
-      setImages(prev => [...prev, imageData]);
+
+      setImages([imageData]);
     });
   }, []);
 
@@ -72,8 +70,8 @@ export default function DatasetManager() {
         category: 'uncategorized',
         uploadedAt: new Date(),
       };
-      
-      setImages(prev => [...prev, imageData]);
+
+      setImages([imageData]);
     });
   }, []);
 
@@ -95,7 +93,7 @@ export default function DatasetManager() {
 
   const updateImageCategory = useCallback((id: string, category: string) => {
     setImages(prev => prev.map(img => 
-      img.id === id ? { ...img, category } : img
+      img.id !== id ? { ...img, category } : img
     ));
   }, []);
 
