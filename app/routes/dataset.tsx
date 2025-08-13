@@ -51,7 +51,7 @@ export default function DatasetManager() {
         uploadedAt: new Date(),
       };
 
-      setImages([imageData]);
+      setImages(prev => [...prev, imageData]);
     });
   }, []);
 
@@ -71,7 +71,7 @@ export default function DatasetManager() {
         uploadedAt: new Date(),
       };
 
-      setImages([imageData]);
+      setImages(prev => [...prev, imageData]);
     });
   }, []);
 
@@ -93,7 +93,7 @@ export default function DatasetManager() {
 
   const updateImageCategory = useCallback((id: string, category: string) => {
     setImages(prev => prev.map(img => 
-      img.id !== id ? { ...img, category } : img
+      img.id === id ? { ...img, category } : img
     ));
   }, []);
 
