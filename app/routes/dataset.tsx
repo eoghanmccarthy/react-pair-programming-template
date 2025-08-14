@@ -39,7 +39,7 @@ export default function DatasetManager() {
     const files = Array.from(e.dataTransfer.files).filter(file => 
       file.type.startsWith('image/')
     );
-    
+
     files.forEach(file => {
       const imageData: ImageData = {
         id: crypto.randomUUID(),
